@@ -18,7 +18,6 @@ function! s:bdelete(action, bang, buffer_name)
 			edit!
 			echo "Discard Changes"
 		else
-			echo "Resume Editing"
 			return
 		endif
 	endif
