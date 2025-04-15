@@ -10,6 +10,11 @@ function! s:bdelete(action, bang, buffer_name)
 	endif
 
 	if getbufvar(buffer, "&modified") && empty(a:bang)
+		if &confirm == "noconfirm"
+			let error = "E89: No write since last change for buffer "
+			return s:error(error . buffer . " (add ! to override)")
+		endif
+
 		let confirm_result = confirm("Save changes?", "&Yes\n&No\n&Cancel", 3)
 		if confirm_result == 1
 			write
