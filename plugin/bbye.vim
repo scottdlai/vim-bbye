@@ -18,10 +18,8 @@ function! s:bdelete(action, bang, buffer_name)
 		let confirm_result = confirm("Save changes?", "&Yes\n&No\n&Cancel", 3)
 		if confirm_result == 1
 			write
-			echo "Save Changes"
 		elseif confirm_result == 2
 			edit!
-			echo "Discard Changes"
 		else
 			return
 		endif
